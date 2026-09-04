@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Laboratorio RGB | Selector de Color</title>
+
+
+    <!-- ==========================================
+         BOOTSTRAP
+         ========================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================
+         BOOTSTRAP ICONS
+         ========================================== -->
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==========================================
+         HOJA DE ESTILOS PROPIA
+         ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL
+         ========================================== -->
+
+    <main class="container py-5">
+
+
+        <!-- ==========================================
+             ENCABEZADO
+             ========================================== -->
+
+        <header class="text-center mb-5">
+
+            <div class="header-icon mb-3">
+
+                <i class="bi bi-palette-fill"></i>
+
+            </div>
+
+
+            <h1 class="main-title">
+
+                Laboratorio de Color RGB
+
+            </h1>
+
+
+            <p class="main-subtitle">
+
+                <i class="bi bi-stars"></i>
+
+                Explora, combina y descubre nuevas tonalidades
+
+            </p>
+
+        </header>
+
+
+
+        <!-- ==========================================
+             TARJETA PRINCIPAL
+             ========================================== -->
+
+        <section class="card main-card border-0">
+
+
+            <div class="card-body p-4 p-md-5">
+
+
+                <!-- ==========================================
+                     SECCIÓN COLOR PICKER
+                     ========================================== -->
+
+                <div class="section-heading">
+
+                    <div class="section-icon picker-icon">
+
+                        <i class="bi bi-eyedropper"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            Selecciona un color
+
+                        </h2>
+
+                        <p>
+
+                            Utiliza el selector de color HTML
+
+                            para elegir una tonalidad.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="picker-panel text-center mb-5">
+
+
+                    <label
+                        for="colorPicker"
+                        class="picker-label"
+                    >
+
+                        <i class="bi bi-pipette-fill"></i>
+
+                        Color Picker
+
+                    </label>
+
+
+                    <div class="picker-wrapper">
+
+                        <input
+                            type="color"
+                            id="colorPicker"
+                            value="#808080"
+                            class="color-picker"
+                            title="Selecciona un color"
+                        >
+
+                    </div>
+
+
+                    <small class="text-muted">
+
+                        Haz clic sobre el recuadro para seleccionar
+                        cualquier color.
+
+                    </small>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     SECCIÓN VISTA PREVIA
+                     ========================================== -->
+
+                <div class="section-heading">
+
+                    <div class="section-icon preview-icon">
+
+                        <i class="bi bi-display"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            Vista previa
+
+                        </h2>
+
+                        <p>
+
+                            El color seleccionado aparecerá
+                            en este recuadro.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="colorPreview"
+                    class="color-preview mb-4"
+                >
+
+                    <div class="preview-content">
+
+                        <i class="bi bi-droplet-half"></i>
+
+                        <span>
+
+                            Vista previa del color
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     RESULTADOS HEX Y RGB
+                     ========================================== -->
+
+                <div class="row g-3 mb-5">
+
+
+                    <!-- HEX -->
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="result-card">
+
+                            <div class="result-icon">
+
+                                <i class="bi bi-hash"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="result-label">
+
+                                    Código hexadecimal
+
+                                </div>
+
+
+                                <div
+                                    id="hexValue"
+                                    class="result-value"
+                                >
+
+                                    #808080
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RGB -->
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="result-card">
+
+                            <div class="result-icon">
+
+                                <i class="bi bi-braces"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <div class="result-label">
+
+                                    Valor RGB
+
+                                </div>
+
+
+                                <div
+                                    id="rgbValue"
+                                    class="result-value rgb-result-value"
+                                >
+
+                                    rgb(128, 128, 128)
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     SECCIÓN COMPONENTES RGB
+                     ========================================== -->
+
+                <div class="section-heading">
+
+                    <div class="section-icon rgb-icon">
+
+                        <i class="bi bi-sliders"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+
+                            Componentes RGB
+
+                        </h2>
+
+                        <p>
+
+                            Ajusta cada componente entre 0 y 255.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     ROJO
+                     ========================================== -->
+
+                <div class="rgb-control red-control mb-3">
+
+
+                    <div class="row align-items-center g-3">
+
+
+                        <!-- Etiqueta -->
+
+                        <div class="col-12 col-md-2">
+
+                            <div class="component-name">
+
+                                <span class="color-dot red"></span>
+
+                                <span>Rojo</span>
+
+                            </div>
+
+                            <small class="component-letter">
+
+                                R
+
+                            </small>
+
+                        </div>
+
+
+                        <!-- Slider -->
+
+                        <div class="col-12 col-md-7">
+
+                            <input
+                                type="range"
+                                class="form-range"
+                                id="red"
+                                min="0"
+                                max="255"
+                                value="128"
+                            >
+
+                        </div>
+
+
+                        <!-- Número -->
+
+                        <div class="col-12 col-md-3">
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-123"></i>
+
+                                </span>
+
+                                <input
+                                    type="number"
+                                    class="form-control rgb-input"
+                                    id="redInput"
+                                    min="0"
+                                    max="255"
+                                    value="128"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     VERDE
+                     ========================================== -->
+
+                <div class="rgb-control green-control mb-3">
+
+
+                    <div class="row align-items-center g-3">
+
+
+                        <!-- Etiqueta -->
+
+                        <div class="col-12 col-md-2">
+
+                            <div class="component-name">
+
+                                <span class="color-dot green"></span>
+
+                                <span>Verde</span>
+
+                            </div>
+
+                            <small class="component-letter">
+
+                                G
+
+                            </small>
+
+                        </div>
+
+
+                        <!-- Slider -->
+
+                        <div class="col-12 col-md-7">
+
+                            <input
+                                type="range"
+                                class="form-range"
+                                id="green"
+                                min="0"
+                                max="255"
+                                value="128"
+                            >
+
+                        </div>
+
+
+                        <!-- Número -->
+
+                        <div class="col-12 col-md-3">
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-123"></i>
+
+                                </span>
+
+                                <input
+                                    type="number"
+                                    class="form-control rgb-input"
+                                    id="greenInput"
+                                    min="0"
+                                    max="255"
+                                    value="128"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     AZUL
+                     ========================================== -->
+
+                <div class="rgb-control blue-control mb-4">
+
+
+                    <div class="row align-items-center g-3">
+
+
+                        <!-- Etiqueta -->
+
+                        <div class="col-12 col-md-2">
+
+                            <div class="component-name">
+
+                                <span class="color-dot blue"></span>
+
+                                <span>Azul</span>
+
+                            </div>
+
+                            <small class="component-letter">
+
+                                B
+
+                            </small>
+
+                        </div>
+
+
+                        <!-- Slider -->
+
+                        <div class="col-12 col-md-7">
+
+                            <input
+                                type="range"
+                                class="form-range"
+                                id="blue"
+                                min="0"
+                                max="255"
+                                value="128"
+                            >
+
+                        </div>
+
+
+                        <!-- Número -->
+
+                        <div class="col-12 col-md-3">
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-123"></i>
+
+                                </span>
+
+                                <input
+                                    type="number"
+                                    class="form-control rgb-input"
+                                    id="blueInput"
+                                    min="0"
+                                    max="255"
+                                    value="128"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     INFORMACIÓN
+                     ========================================== -->
+
+                <div class="info-message mb-4">
+
+                    <i class="bi bi-info-circle-fill"></i>
+
+                    <div>
+
+                        <strong>
+
+                            ¿Sabías que...?
+
+                        </strong>
+
+                        <p>
+
+                            El modelo RGB combina los colores
+                            rojo, verde y azul. Cada componente
+                            puede tener un valor entre
+                            <strong>0 y 255</strong>, permitiendo
+                            representar millones de colores.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==========================================
+                     BOTÓN RESTABLECER
+                     ========================================== -->
+
+                <div class="text-center">
+
+                    <button
+                        type="button"
+                        id="resetButton"
+                        class="btn reset-button"
+                    >
+
+                        <i class="bi bi-arrow-counterclockwise"></i>
+
+                        Restablecer valores
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PIE DE PÁGINA
+             ========================================== -->
+
+        <footer class="footer mt-5">
+
+
+            <div class="footer-divider"></div>
+
+
+            <div class="row g-4 align-items-center">
+
+
+                <!-- Datos de la práctica -->
+
+                <div class="col-12 col-md-4 text-center text-md-start">
+
+                    <div class="footer-title">
+
+                        <i class="bi bi-journal-code"></i>
+
+                        Datos de la práctica
+
+                    </div>
+
+
+                    <p class="footer-text">
+
+                        Práctica de Desarrollo Web
+
+                    </p>
+
+
+                    <p class="footer-text">
+
+                        <i class="bi bi-code-slash"></i>
+
+                        HTML · CSS · JavaScript · Bootstrap
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Datos del alumno -->
+
+                <div class="col-12 col-md-4 text-center">
+
+                    <div class="footer-title">
+
+                        <i class="bi bi-person-badge"></i>
+
+                        Datos del alumno
+
+                    </div>
+
+
+                    <p class="student-name">
+
+                        Alejandro Santana
+
+                    </p>
+
+
+                    <p class="footer-text">
+
+                        <i class="bi bi-card-text"></i>
+
+                        Núm. de control: 95200711
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Motivación -->
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+
+                    <div class="footer-title">
+
+                        <i class="bi bi-lightbulb-fill"></i>
+
+                        Para el grupo
+
+                    </div>
+
+
+                    <p class="motivation">
+
+                        “Cada línea de código es un paso
+                        más hacia la solución.”
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright text-center mt-4">
+
+                <i class="bi bi-code-square"></i>
+
+                Aprende · Experimenta · Crea
+
+            </div>
+
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+         ========================================== -->
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

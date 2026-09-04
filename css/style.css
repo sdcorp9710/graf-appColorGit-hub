@@ -1,0 +1,979 @@
+/*
+    ==================================================
+    LABORATORIO DE COLOR RGB
+    Hoja de estilos
+    ==================================================
+*/
+
+
+/* ==================================================
+   VARIABLES
+   ================================================== */
+
+:root {
+
+    --text-main: #212529;
+
+    --text-muted: #6c757d;
+
+    --surface: rgba(255, 255, 255, 0.96);
+
+    --surface-soft: #f8f9fa;
+
+    --border: #e9ecef;
+
+    --red: #dc3545;
+
+    --green: #198754;
+
+    --blue: #0d6efd;
+
+}
+
+
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+   ================================================== */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    color: var(--text-main);
+
+    /*
+        Degradado muy sutil para el fondo.
+        No se aplica a los controles.
+    */
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(13, 110, 253, 0.08),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(111, 66, 193, 0.07),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(25, 135, 84, 0.07),
+            transparent 35%
+        ),
+
+        #f4f6f9;
+
+}
+
+
+/* ==================================================
+   ENCABEZADO
+   ================================================== */
+
+.header-icon {
+
+    width: 72px;
+
+    height: 72px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eef2ff
+    );
+
+    border: 1px solid rgba(13, 110, 253, 0.10);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.07);
+
+}
+
+
+.header-icon i {
+
+    font-size: 2.2rem;
+
+    color: #495057;
+
+}
+
+
+.main-title {
+
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.main-subtitle {
+
+    color: var(--text-muted);
+
+    font-size: 1.05rem;
+
+    margin-bottom: 0;
+
+}
+
+
+.main-subtitle i {
+
+    margin-right: 5px;
+
+}
+
+
+/* ==================================================
+   TARJETA PRINCIPAL
+   ================================================== */
+
+.main-card {
+
+    background: var(--surface);
+
+    border-radius: 28px !important;
+
+    overflow: hidden;
+
+    box-shadow:
+
+        0 20px 50px rgba(0, 0, 0, 0.08),
+
+        0 2px 8px rgba(0, 0, 0, 0.04);
+
+}
+
+
+/* ==================================================
+   ENCABEZADOS DE SECCIÓN
+   ================================================== */
+
+.section-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.section-icon {
+
+    width: 46px;
+
+    height: 46px;
+
+    min-width: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background-color: var(--surface-soft);
+
+    border: 1px solid var(--border);
+
+}
+
+
+.section-icon i {
+
+    font-size: 1.25rem;
+
+}
+
+
+.picker-icon i {
+
+    color: #6f42c1;
+
+}
+
+
+.preview-icon i {
+
+    color: #0d6efd;
+
+}
+
+
+.rgb-icon i {
+
+    color: #198754;
+
+}
+
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+}
+
+
+.section-heading p {
+
+    margin: 3px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+
+}
+
+
+/* ==================================================
+   COLOR PICKER
+   ================================================== */
+
+.picker-panel {
+
+    padding: 28px 20px;
+
+    border-radius: 18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f8f9fa,
+            #ffffff
+        );
+
+    border: 1px solid var(--border);
+
+}
+
+
+.picker-label {
+
+    display: block;
+
+    margin-bottom: 15px;
+
+    font-weight: 700;
+
+}
+
+
+.picker-label i {
+
+    margin-right: 6px;
+
+}
+
+
+.picker-wrapper {
+
+    margin-bottom: 12px;
+
+}
+
+
+.color-picker {
+
+    width: 100px;
+
+    height: 70px;
+
+    padding: 5px;
+
+    border: 2px solid #dee2e6;
+
+    border-radius: 15px;
+
+    background-color: white;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.color-picker:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.10);
+
+}
+
+
+.color-picker:focus {
+
+    outline: 3px solid rgba(13, 110, 253, 0.20);
+
+    outline-offset: 3px;
+
+}
+
+
+/* ==================================================
+   VISTA PREVIA
+   ================================================== */
+
+.color-preview {
+
+    height: 250px;
+
+    border-radius: 22px;
+
+    background-color: rgb(128, 128, 128);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+        background-color 0.2s ease;
+
+    box-shadow:
+
+        inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+
+        0 12px 30px rgba(0, 0, 0, 0.10);
+
+}
+
+
+/*
+    Brillo muy sutil sobre el recuadro.
+*/
+
+.color-preview::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.15),
+            transparent 45%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.preview-content {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    color: rgba(255,255,255,0.92);
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.45);
+
+}
+
+
+.preview-content i {
+
+    font-size: 3.5rem;
+
+    margin-bottom: 10px;
+
+}
+
+
+.preview-content span {
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+}
+
+
+/* ==================================================
+   TARJETAS DE RESULTADOS
+   ================================================== */
+
+.result-card {
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background-color: #f8f9fa;
+
+    border: 1px solid var(--border);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.result-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.06);
+
+}
+
+
+.result-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    min-width: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background-color: white;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.result-icon i {
+
+    font-size: 1.4rem;
+
+}
+
+
+.result-label {
+
+    color: var(--text-muted);
+
+    font-size: 0.8rem;
+
+    margin-bottom: 4px;
+
+}
+
+
+.result-value {
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 1.25rem;
+
+    font-weight: 700;
+
+    word-break: break-word;
+
+}
+
+
+.rgb-result-value {
+
+    font-size: 1.05rem;
+
+}
+
+
+/* ==================================================
+   CONTROLES RGB
+   ================================================== */
+
+.rgb-control {
+
+    padding: 18px;
+
+    border-radius: 17px;
+
+    background-color: #f8f9fa;
+
+    border: 1px solid var(--border);
+
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.rgb-control:hover {
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.05);
+
+}
+
+
+/* ==================================================
+   NOMBRE DEL COMPONENTE
+   ================================================== */
+
+.component-name {
+
+    display: flex;
+
+    align-items: center;
+
+    font-weight: 700;
+
+}
+
+
+.component-letter {
+
+    display: block;
+
+    margin-left: 22px;
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-family: monospace;
+
+}
+
+
+/* ==================================================
+   PUNTOS DE COLOR
+   ================================================== */
+
+.color-dot {
+
+    width: 13px;
+
+    height: 13px;
+
+    display: inline-block;
+
+    border-radius: 50%;
+
+    margin-right: 8px;
+
+}
+
+
+.color-dot.red {
+
+    background-color: var(--red);
+
+    box-shadow:
+        0 0 0 4px rgba(220,53,69,0.10);
+
+}
+
+
+.color-dot.green {
+
+    background-color: var(--green);
+
+    box-shadow:
+        0 0 0 4px rgba(25,135,84,0.10);
+
+}
+
+
+.color-dot.blue {
+
+    background-color: var(--blue);
+
+    box-shadow:
+        0 0 0 4px rgba(13,110,253,0.10);
+
+}
+
+
+/* ==================================================
+   INPUTS NUMÉRICOS
+   ================================================== */
+
+.rgb-input {
+
+    text-align: center;
+
+    font-weight: 700;
+
+    font-family: monospace;
+
+}
+
+
+.input-group-text {
+
+    background-color: white;
+
+    border-color: #dee2e6;
+
+    color: #6c757d;
+
+}
+
+
+.rgb-input:focus {
+
+    box-shadow:
+        0 0 0 3px rgba(13, 110, 253, 0.12);
+
+}
+
+
+/* ==================================================
+   SLIDERS
+   ================================================== */
+
+.form-range {
+
+    cursor: pointer;
+
+}
+
+
+.form-range:focus {
+
+    outline: none;
+
+}
+
+
+/* ==================================================
+   MENSAJE INFORMATIVO
+   ================================================== */
+
+.info-message {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background-color: #f8f9fa;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.info-message > i {
+
+    font-size: 1.3rem;
+
+    color: #0d6efd;
+
+    margin-top: 2px;
+
+}
+
+
+.info-message strong {
+
+    font-weight: 700;
+
+}
+
+
+.info-message p {
+
+    margin: 4px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* ==================================================
+   BOTÓN RESTABLECER
+   ================================================== */
+
+.reset-button {
+
+    padding: 11px 24px;
+
+    border-radius: 12px;
+
+    border: 1px solid #dee2e6;
+
+    background-color: white;
+
+    color: #495057;
+
+    font-weight: 600;
+
+    transition:
+        all 0.2s ease;
+
+}
+
+
+.reset-button i {
+
+    margin-right: 6px;
+
+}
+
+
+.reset-button:hover {
+
+    background-color: #f8f9fa;
+
+    border-color: #adb5bd;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,0.07);
+
+}
+
+
+/* ==================================================
+   PIE DE PÁGINA
+   ================================================== */
+
+.footer {
+
+    color: var(--text-muted);
+
+}
+
+
+.footer-divider {
+
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #dee2e6,
+        transparent
+    );
+
+    margin-bottom: 30px;
+
+}
+
+
+.footer-title {
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    color: #495057;
+
+    margin-bottom: 10px;
+
+}
+
+
+.footer-title i {
+
+    margin-right: 5px;
+
+}
+
+
+.footer-text {
+
+    margin: 4px 0;
+
+    font-size: 0.82rem;
+
+}
+
+
+.student-name {
+
+    margin: 0 0 5px;
+
+    font-weight: 700;
+
+    color: #343a40;
+
+}
+
+
+.motivation {
+
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    font-style: italic;
+
+    line-height: 1.5;
+
+}
+
+
+.copyright {
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(222,226,230,0.6);
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+@media (max-width: 767px) {
+
+
+    .main-card {
+
+        border-radius: 20px !important;
+
+    }
+
+
+    .color-preview {
+
+        height: 200px;
+
+    }
+
+
+    .rgb-control {
+
+        padding: 16px;
+
+    }
+
+
+    .section-heading {
+
+        align-items: flex-start;
+
+    }
+
+
+    .result-value {
+
+        font-size: 1.05rem;
+
+    }
+
+
+    .rgb-result-value {
+
+        font-size: 0.95rem;
+
+    }
+
+
+}
+
+
+/* ==================================================
+   REDUCCIÓN DE MOVIMIENTO
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+
+    }
+
+}
